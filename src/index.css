@@ -165,7 +165,7 @@ nav {
   text-align: center;
   top: 0;
   padding: 1em 2em;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1em;
 }
 
@@ -259,12 +259,16 @@ nav a.active {
   background-color: var(--white);
   transition: 0.5s;
   animation: fadeIn 0.5s;
-  cursor: pointer;
   border-radius: 10px;
 }
 
-.post-card:hover {
+.post-card.clickable {
+  cursor: pointer;
+}
+
+.post-card.clickable:hover {
   box-shadow: 0 8px 16px 0 var(--green);
+  transform: translateY(-2px);
 }
 
 .post-card img {
@@ -314,6 +318,46 @@ nav a.active {
 
 #user-page .btns {
   padding: 1em 0;
+}
+
+/* ---------- Post Detail Page Styling ---------- */
+#post-page .post-card {
+  cursor: default;
+  margin-bottom: 2em;
+}
+
+#post-page .post-card:hover {
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  transform: none;
+}
+
+#post-page .post-card img {
+  height: 300px;
+}
+
+/* ---------- Button Outline Styling ---------- */
+.btn-outline {
+  background-color: transparent !important;
+  color: var(--green) !important;
+  border: 2px solid var(--green) !important;
+  width: auto !important;
+  padding: 0.8em 1.5em !important;
+}
+
+.btn-outline:hover {
+  background-color: var(--green) !important;
+  color: var(--white) !important;
+}
+
+.btn-delete {
+  background-color: transparent !important;
+  color: var(--text-color-danger) !important;
+  border: 2px solid var(--text-color-danger) !important;
+}
+
+.btn-delete:hover {
+  background-color: var(--text-color-danger) !important;
+  color: var(--white) !important;
 }
 
 /* ---------- Login Form Styling ---------- */
