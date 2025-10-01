@@ -1,5 +1,6 @@
-// Importerer React hooks
+// Importerer React hooks og PropTypes
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 // PostForm komponenten - kan bruges til både create og update
 export default function PostForm({
@@ -117,3 +118,14 @@ export default function PostForm({
     </form>
   );
 }
+
+// PropTypes validation
+PostForm.propTypes = {
+  savePost: PropTypes.func.isRequired,
+  post: PropTypes.shape({
+    caption: PropTypes.string,
+    image: PropTypes.string,
+  }),
+  isSubmitting: PropTypes.bool,
+  onCancel: PropTypes.func,
+};

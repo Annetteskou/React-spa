@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
 import UserAvatar from "./UserAvatar";
 
 export default function PostCard({ post, disableNavigation = false }) {
@@ -21,3 +22,14 @@ export default function PostCard({ post, disableNavigation = false }) {
     </article>
   );
 }
+
+// PropTypes validation
+PostCard.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    caption: PropTypes.string.isRequired,
+  }).isRequired,
+  disableNavigation: PropTypes.bool,
+};

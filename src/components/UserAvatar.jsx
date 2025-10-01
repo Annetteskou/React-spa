@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export default function UserAvatar({ uid }) {
   const [user, setUser] = useState({});
@@ -32,3 +33,8 @@ export default function UserAvatar({ uid }) {
     </div>
   );
 }
+
+// PropTypes validation
+UserAvatar.propTypes = {
+  uid: PropTypes.string.isRequired,
+};
