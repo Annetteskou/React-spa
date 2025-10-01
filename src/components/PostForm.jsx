@@ -1,32 +1,36 @@
+// Importerer React hooks
 import { useState, useEffect } from "react";
 
+// PostForm komponenten - kan bruges til både create og update
 export default function PostForm({
-  savePost,
-  post,
-  isSubmitting = false,
-  onCancel,
+  savePost, // Funktion der kaldes når formen submitter
+  post, // Post data (kun til update mode)
+  isSubmitting = false, // Loading state fra parent komponent
+  onCancel, // Funktion der kaldes når brugeren annullerer
 }) {
-  const [caption, setCaption] = useState("");
-  const [image, setImage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  // State til form felter
+  const [caption, setCaption] = useState(""); // Caption tekst
+  const [image, setImage] = useState(""); // Image URL
+  const [errorMessage, setErrorMessage] = useState(""); // Valideringsfejl
 
-  // Hvis post prop findes, udfyld form (for update mode)
+  // useEffect kører når post prop ændres (for update mode)
   useEffect(() => {
     if (post?.caption && post?.image) {
+      // Pre-udfyld form felter med eksisterende post data
       setCaption(post.caption);
       setImage(post.image);
     }
   }, [post]);
 
-  // Clear error message når brugeren begynder at skrive
+  // Handler funktioner der også rydder error messages
   function handleCaptionChange(e) {
-    setCaption(e.target.value);
-    if (errorMessage) setErrorMessage("");
+    setCaption(e.target.value); // Opdater caption state
+    if (errorMessage) setErrorMessage(""); // Ryd error hvis der er en
   }
 
   function handleImageChange(e) {
-    setImage(e.target.value);
-    if (errorMessage) setErrorMessage("");
+    setImage(e.target.value); // Opdater image state
+    if (errorMessage) setErrorMessage(""); // Ryd error hvis der er en
   }
 
   function handleSubmit(event) {
