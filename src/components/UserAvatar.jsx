@@ -23,11 +23,14 @@ export default function UserAvatar({ uid }) {
   return (
     <div className="avatar">
       <img
-        src={user?.image || "https://placehold.co/50x50.webp"}
+        src={
+          user?.image ||
+          "https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2558760599.jpg"
+        }
         alt={user?.name || "User"}
       />
       <span>
-        <h3>{user?.name || "Loading..."}</h3>
+        <h3>{user?.name || "Annette"}</h3>
         <p>{user?.title || ""}</p>
       </span>
     </div>
