@@ -170,3 +170,4 @@ const [errorMessage, setErrorMessage] = useState("");
 ## 🎯 **Din kode er BEDRE end guidens eksempel!**
 
 Du har taget guidens grundlæggende eksempel og forbedret det til en **production-ready** implementering der følger moderne React best practices.
+
